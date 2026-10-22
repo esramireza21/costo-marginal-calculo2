@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Punto Óptimo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <nav><b>Punto Óptimo</b><a href="#negocio">Negocio</a><a href="#terrenos">Terrenos</a><a href="#inversion">Tu inversión</a></nav>
+    <div class="w">
+        <div class="hero">
+            <div>
+                <h1>Sabe cuántos vender.<br><span>Sabe dónde.</span></h1>
+                <p class="lead">Te decimos cuántos platos conviene vender para ganar lo máximo, y en qué terreno ponerlo.</p>
+                <a class="btn" href="#negocio">Empezar</a>
+            </div>
+            <div><div id="g3" class="plot"></div></div>
+        </div>
+        
+        <div class="two">
+            <a class="path" href="#negocio"><h3>Negocio</h3><p>Cuántos platos vender y cuánto vas a ganar.</p></a>
+            <a class="path" href="#terrenos"><h3>Terrenos</h3><p>Lotes con su medida exacta y su precio.</p></a>
+        </div>
+
+        <section id="negocio">
+            <h2>Tu negocio, con números claros.</h2>
+            <p class="sub">Elige qué vendes. Te mostramos cuánto conviene producir cada día.</p>
+            <div class="chips" id="chips"></div>
+            <div class="row">
+                <div class="card">
+                    <div class="say" id="say"></div>
+                    <label>¿A cuánto vendes cada plato? <b id="vp"></b></label><input type="range" id="p">
+                    <label>Costos fijos al día <b id="vcf"></b></label><input type="range" id="cf">
+                </div>
+                <div class="card"><div id="g2" class="plot" style="height:340px"></div></div>
+            </div>
+            <details><summary>Cómo lo calculamos</summary><pre id="procN"></pre></details>
+        </section>
+
+        <section id="terrenos">
+            <h2>El lugar para tu negocio.</h2>
+            <p class="sub">Cada lote tiene una orilla irregular. Medimos su área exacta y te decimos si tu negocio cabe.</p>
+            <div class="lots" id="lots"></div>
+            <div class="row">
+                <div class="card"><div id="gt" class="plot" style="height:380px"></div></div>
+                <div class="card">
+                    <div class="say" id="sayT"></div>
+                    <label>Medidas tomadas para comprobar (8 mediciones)</label>
+                    <div id="chk" style="color:var(--mu)"></div>
+                </div>
+            </div>
+            <details><summary>Cómo lo calculamos</summary><pre id="procT"></pre></details>
+        </section>
+
+        <section id="inversion">
+            <h2>Tu negocio en tu terreno.</h2>
+            <div class="final">
+                <p style="margin:0;color:var(--mu)" id="payA"></p>
+                <div class="big" id="pay"></div>
+                <p style="margin:0;color:var(--mu)" id="payB"></p>
+                
+                <!-- SIMULADOR BANCARIO -->
+                <div class="banco-sim" id="panelBanco">
+                    <h3>🏦 Simulador de Financiamiento a 5 Años</h3>
+                    <label>Tu Enganche: <b id="lblEnganche">20%</b></label>
+                    <input type="range" id="enganche" min="0" max="80" step="5" value="20">
+                    
+                    <div class="banco-grid">
+                        <div><small>Monto a financiar (8% anual)</small><br><b id="txtPrestamo">Q 0</b></div>
+                        <div><small>Cuota Mensual del Banco</small><br><b id="txtCuota">Q 0</b></div>
+                        <div><small>Ganancia Mensual del Negocio</small><br><b id="txtGananciaMes">Q 0</b></div>
+                        <div id="badgeAprobado" class="badge">EVALUANDO...</div>
+                    </div>
+                </div>
+
+                <button class="pdf" id="btnPdf" onclick="descargarPDF()">Descargar Propuesta (PDF)</button>
+            </div>
+        </section>
+    </div>
+    <footer>Punto Óptimo · Proyecto final de Cálculo II</footer>
+
+    <!-- Librerías Externas -->
+    <script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.2/dist/html2pdf.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist-min@2.35.2/plotly.min.js"></script>
+    
+    <!-- Nuestros Scripts -->
+    <script src="js/matematica.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
